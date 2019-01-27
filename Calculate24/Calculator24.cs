@@ -61,7 +61,7 @@ namespace JT.Algorithm
                         return r;
                     }
 
-                    if (Math.Abs(y.val) < 0.0001)
+                    if (Math.Abs(y.val) > 0.0001)
                     {
                         node = Div(x, y);
                         r = CheckAndContinue(input, node);
@@ -70,7 +70,7 @@ namespace JT.Algorithm
                             return r;
                         }
                     }
-                    if (Math.Abs(y.val) < 0.0001){
+                    if (Math.Abs(x.val) > 0.0001){
                         node = Div(y, x);
                         r = CheckAndContinue(input, node);
                         if (r != null)
@@ -145,6 +145,7 @@ namespace JT.Algorithm
         {
             if (input.Length == 2)
             {
+                System.Diagnostics.Debug.WriteLine(currentNode.ToString());
                 return Math.Abs(currentNode.val - 24.0f) < 0.0001 ? currentNode : null;
             }
             var newInput = new List<Node>();
